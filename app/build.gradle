@@ -47,7 +47,7 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     implementation 'com.google.android.gms:play-services-vision:11+'
-    implementation 'com.shuhart.stepview:stepview:1.2.0'
+    implementation 'com.shuhart.stepview:stepview:1.5.1'
     //compile 'org.nd4j:nd4j-native:0.9.1'
     //compile 'org.nd4j:nd4j-native:0.9.1:android-x86'
     //implementation project(':openCVLibrary341-contrib')
