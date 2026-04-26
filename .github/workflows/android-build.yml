@@ -23,7 +23,7 @@ jobs:
           distribution: temurin
           java-version: '11'
 
-      - name: Prepare local.properties
+      - name: Create local.properties
         run: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
@@ -39,15 +39,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
-      - name: Install Android SDK components
-        run: |
-          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses || true
-          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "platforms;android-29" "build-tools;29.0.3" "ndk;21.4.7075529"
-
-      - name: Point to NDK
-        run: |
-          echo "ndk.dir=$ANDROID_SDK_ROOT/ndk/21.4.7075529" >> local.properties
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
